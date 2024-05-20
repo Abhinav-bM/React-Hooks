@@ -13,9 +13,19 @@ function Effect() {
 //     document.title = `${count} new messages!`
 //   },[])
 
-  useEffect(()=>{
-    document.title = `${otherCount} new messages!`
-  },[])
+//   useEffect(()=>{
+//     document.title = `${otherCount} new messages!`
+//   },[otherCount])
+
+useEffect(()=>{
+    const counter  = setInterval(()=>{
+        setCounter(count + 1)
+    }, 1000)
+
+    return () =>{
+        clearInterval(counter)
+    }
+})
   
   const increment = () =>{
     setCounter(count + 1)
